@@ -52,6 +52,14 @@ def main():
     st.title("Image Captioning")
 
     st.text("Built with Streamlit")
+
+    background_color = """
+    <style>
+        body {
+            background-color: #f0f0f0; /* You can replace this with any color code */
+        }
+    </style>
+"""
         
 
     # Upload video file
