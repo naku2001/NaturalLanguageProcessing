@@ -52,7 +52,7 @@ def main():
     st.title("Image Caption")
 
     # Upload video file
-    video_file = st.file_uploader("Upload Video ", type=["mp4"])
+    video_file = st.file_uploader("Upload Video ", type=["mp4"], max_upload_size=2 * 1024 * 1024)
     if video_file is not None:
         with tempfile.NamedTemporaryFile(delete=False) as temp_file:
             temp_file.write(video_file.read())
