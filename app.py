@@ -53,13 +53,13 @@ def main():
 
     # Upload video file
     video_file = st.file_uploader("Upload Video ", type=["mp4"])
-    if video_file is not None:
+    if video_file is not None and st.button("Caption"):
         with tempfile.NamedTemporaryFile(delete=False) as temp_file:
             temp_file.write(video_file.read())
             video_path = temp_file.name
 
         # Convert video frames to images
-        if st.button("Detect Objects"):
+      
         frames = []
         vidcap = cv2.VideoCapture(video_path)
         success, image = vidcap.read()
