@@ -50,7 +50,7 @@ def predict_caption(photo):
 # Streamlit app
 def main():
     st.title("Image Captioning")
-    st.subheader("Upload your video!!!!")
+
     st.text("Built with Streamlit")
         
 
