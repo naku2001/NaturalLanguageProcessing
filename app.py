@@ -95,7 +95,7 @@ def main():
 
             # Display the frame and the predicted caption
             st.image(frame, use_column_width=True)
-            st.write(f"Caption for Frame {i+1}: {caption}")
+            st.write(f" Frame {i+1}: {caption}")
 
 # Run the Streamlit app
 if __name__ == "__main__":
