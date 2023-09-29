@@ -21,7 +21,7 @@ def predict_caption(photo):
         word_to_idx = pickle.load(f)
 
     # Load idx_to_word dictionary from file
-    with open("index_to_word.pkl", "rb") as f:
+    with open("indexToWord[1].pkl", "rb") as f:
         idx_to_word = pickle.load(f)
 
     # Placeholder for the image captioning model
