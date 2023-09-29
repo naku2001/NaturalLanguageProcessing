@@ -13,39 +13,7 @@ resnet_model = ResNet50(weights="imagenet", include_top=False, pooling="avg")
 
 # Define the prediction function
 def predict_caption(photo):
-    in_text = "startseq"
-    max_len = 29
-
-    # Load word_to_idx dictionary from file
-    with open("wordToIndex[1].pkl", "rb") as f:
-        word_to_idx = pickle.load(f)
-
-    # Load idx_to_word dictionary from file
-    with open("indexToWord[1].pkl", "rb") as f:
-        idx_to_word = pickle.load(f)
-
-    # Placeholder for the image captioning model
-    model = load_model("final_mod.h5")
-
-    for _ in range(max_len):
-        sequence = [word_to_idx[w] for w in in_text.split() if w in word_to_idx]
-        sequence = pad_sequences([sequence], maxlen=max_len, padding='post')
-
-        ypred = model.predict([photo, sequence])
-        ypred = ypred.argmax()
-        if ypred not in idx_to_word:
-            break
-        word = idx_to_word[ypred]
-        in_text += ' ' + word
-
-        if word == 'endseq':
-            break
-
-    final_caption = in_text.split()
-    final_caption = final_caption[1:-1]
-    final_caption = ' '.join(final_caption)
-
-    return final_caption
+    # ... your existing prediction logic here ...
 
 # Streamlit app
 def main():
@@ -53,7 +21,9 @@ def main():
 
     # Upload video file
     video_file = st.file_uploader("Upload Video ", type=["mp4"])
-    if video_file is not None:
+    predict_button = st.button("Predict")  # Add Predict button
+
+    if predict_button and video_file is not None:
         with tempfile.NamedTemporaryFile(delete=False) as temp_file:
             temp_file.write(video_file.read())
             video_path = temp_file.name
@@ -67,7 +37,6 @@ def main():
             success, image = vidcap.read()
 
         # Process each frame and predict captions
-    
         for i, frame in enumerate(frames):
             # Resize the frame to the input size of the ResNet-50 model
             frame = cv2.resize(frame, (224, 224))
@@ -88,3 +57,4 @@ def main():
 # Run the Streamlit app
 if __name__ == "__main__":
     main()
+
