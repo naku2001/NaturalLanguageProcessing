@@ -17,7 +17,7 @@ def predict_caption(photo):
     max_len = 29
 
     # Load word_to_idx dictionary from file
-    with open("saved_toix.pkl", "rb") as f:
+    with open("word_to_index.pkl", "rb") as f:
         word_to_idx = pickle.load(f)
 
     # Load idx_to_word dictionary from file
