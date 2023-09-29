@@ -49,10 +49,10 @@ def predict_caption(photo):
 
 # Streamlit app
 def main():
-    st.title("Image Captioning with Streamlit")
+    st.title("Image Caption")
 
     # Upload video file
-    video_file = st.file_uploader("Upload a video (max 2MB)", type=["mp4"])
+    video_file = st.file_uploader("Upload Video ", type=["mp4"])
     if video_file is not None:
         with tempfile.NamedTemporaryFile(delete=False) as temp_file:
             temp_file.write(video_file.read())
@@ -67,7 +67,7 @@ def main():
             success, image = vidcap.read()
 
         # Process each frame and predict captions
-        st.write(f"Number of frames: {len(frames)}")
+    
         for i, frame in enumerate(frames):
             # Resize the frame to the input size of the ResNet-50 model
             frame = cv2.resize(frame, (224, 224))
