@@ -56,7 +56,7 @@ def main():
     background_color = """
     <style>
         body {
-            background-color: #f0f0f0; /* You can replace this with any color code */
+            background-color:  #00FF00;
         }
     </style>
 """
