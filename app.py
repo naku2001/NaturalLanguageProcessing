@@ -59,6 +59,7 @@ def main():
             video_path = temp_file.name
 
         # Convert video frames to images
+     if st.button("Detect Objects"):
         frames = []
         vidcap = cv2.VideoCapture(video_path)
         success, image = vidcap.read()
