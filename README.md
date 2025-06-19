@@ -6,6 +6,8 @@ This Streamlit web app allows users to upload a video, extract frames from it, a
 Great for exploring how deep learning can be used to interpret and describe visual data.
 
 🚀 Features
+
+
 ✅ Upload .mp4 video files
 
 ✅ Extract and process each video frame
